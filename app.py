@@ -1,6 +1,8 @@
 
 from flask import Flask, jsonify
 import grequests
+import markdown
+import markdown.extensions.fenced_code
 from gevent import monkey
 monkey.patch_all()
 from generators import num_of_pages_and_amount,url_generator_list
@@ -17,7 +19,11 @@ url = 'https://api.fbi.gov/wanted/v1/list'
 @app.route("/")
 def main():
 
-    return ""
+
+    readme = open("README.md","r")
+    template = markdown.markdown(readme.read(), extensions=["fenced_code"])
+
+    return template
 
 
 
