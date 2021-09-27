@@ -23,7 +23,7 @@ def main():
 
 
 @app.route('/search-with-parameters/<search_parameters>')
-def search_for_valid_parameters(search_parameters):
+def search_by_valid_parameters(search_parameters):
 
 
     pages = num_of_pages_and_amount(url,search_parameters)[0]
@@ -67,7 +67,7 @@ def search_for_valid_parameters(search_parameters):
 
 
 @app.route('/search-any/<any>')
-def search_for_any_words(any):
+def search_by_any_words(any):
 
     search_parameters = "null"
     
@@ -147,7 +147,7 @@ def search_for_any_words(any):
 
 
 @app.route('/search-any-with-parameters/<search_parameters>/<any>')
-def search_for_any_words_with_parameters(search_parameters,any):
+def search_by_any_words_with_parameters(search_parameters,any):
 
     pages = num_of_pages_and_amount(url,search_parameters)[0]
     amount = num_of_pages_and_amount(url,search_parameters)[1]
@@ -223,7 +223,7 @@ def search_for_any_words_with_parameters(search_parameters,any):
 
 
 @app.route('/view-file-by-id/<id>')
-def search_for_id(id):
+def search_by_id(id):
 
     search_parameters = "null"
 
