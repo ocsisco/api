@@ -109,8 +109,8 @@ def search_for_any_words(any):
     result = []
     n=0
 
-    if " " in any:
-        any = any.split(" ")
+    if "+" in any:
+        any = any.split("+")
         x=0
     
         
@@ -185,8 +185,8 @@ def search_for_any_words_with_parameters(search_parameters,any):
     result = []
     n=0
 
-    if " " in any:
-        any = any.split(" ")
+    if "+" in any:
+        any = any.split("+")
         x=0
     
         
