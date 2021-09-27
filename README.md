@@ -1,6 +1,6 @@
 # api
 
-La API consume y depagina los resultados de una consulta de los delincuentes buscados por el FBI.
+##La API consume y depagina los resultados de una consulta de los delincuentes buscados por el FBI.
 
 Existen cuatro funcionalidades:
 
