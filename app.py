@@ -46,15 +46,15 @@ def search_for_valid_parameters(search_parameters):
 
 
                 for i in range(20):
-                    datos = [amount]+[jsn[page]['items'][i]['title']] + [jsn[page]['items'][i]['uid']]
-                    wanted.append(datos)
+                    data = [amount]+[jsn[page]['items'][i]['title']] + [jsn[page]['items'][i]['uid']]
+                    wanted.append(data)
                     amount -= 1
                 
 
             else:
                 for i in range(amount):
-                    datos = [amount]+[jsn[page]['items'][i]['title']] + [jsn[page]['items'][i]['uid']]
-                    wanted.append(datos)
+                    data = [amount]+[jsn[page]['items'][i]['title']] + [jsn[page]['items'][i]['uid']]
+                    wanted.append(data)
                     amount -= 1
 
     wanted = list(reversed(wanted))
@@ -94,15 +94,15 @@ def search_for_any_words(any):
 
 
                 for i in range(20):
-                    datos = [jsn[page]['items'][i]]
-                    wanted.append(datos)
+                    data = [jsn[page]['items'][i]]
+                    wanted.append(data)
                     amount -= 1
                 
 
             else:
                 for i in range(amount):
-                    datos = [jsn[page]['items'][i]]
-                    wanted.append(datos)
+                    data = [jsn[page]['items'][i]]
+                    wanted.append(data)
                     amount -= 1
 
     wanted = (list(reversed(wanted)))
@@ -125,8 +125,8 @@ def search_for_any_words(any):
                         
                     if x == len(any):
                         n += 1
-                        datos = [n]+[dic['title']] + [dic['uid']]
-                        result.append(datos)
+                        data = [n]+[dic['title']] + [dic['uid']]
+                        result.append(data)
                         
 
     else:
@@ -136,8 +136,8 @@ def search_for_any_words(any):
                 strdic = str(dic)
                 if any in strdic:
                     n += 1
-                    datos = [n]+[dic['title']] + [dic['uid']]
-                    result.append(datos)
+                    data = [n]+[dic['title']] + [dic['uid']]
+                    result.append(data)
                 
     count = len(result)
 
@@ -158,7 +158,7 @@ def search_for_any_words_with_parameters(search_parameters,any):
     rspns = grequests.map(rq)
     jsn = [rsp.json() for rsp in rspns]
 
-    lista = []
+    wanted = []
 
         
 
@@ -170,18 +170,18 @@ def search_for_any_words_with_parameters(search_parameters,any):
 
 
                 for i in range(20):
-                    datos = [jsn[page]['items'][i]]
-                    lista.append(datos)
+                    data = [jsn[page]['items'][i]]
+                    wanted.append(data)
                     amount -= 1
                 
 
             else:
                 for i in range(amount):
-                    datos = [jsn[page]['items'][i]]
-                    lista.append(datos)
+                    data = [jsn[page]['items'][i]]
+                    wanted.append(data)
                     amount -= 1
 
-    lista = (list(reversed(lista)))
+    wanted = (list(reversed(wanted)))
     result = []
     n=0
 
@@ -190,7 +190,7 @@ def search_for_any_words_with_parameters(search_parameters,any):
         x=0
     
         
-        for data in lista:
+        for data in wanted:
             for dic in data:
                 strdic = str(dic)
                 for word in any:
@@ -201,19 +201,19 @@ def search_for_any_words_with_parameters(search_parameters,any):
                         
                     if x == len(any):
                         n += 1
-                        datos = [n]+[dic['title']] + [dic['uid']]
-                        result.append(datos)
+                        data = [n]+[dic['title']] + [dic['uid']]
+                        result.append(data)
 
 
     else:
 
-        for data in lista:
+        for data in wanted:
             for dic in data:
                 strdic = str(dic)
                 if any in strdic:
                     n += 1
-                    datos = [n]+[dic['title']] + [dic['uid']]
-                    result.append(datos)
+                    data = [n]+[dic['title']] + [dic['uid']]
+                    result.append(data)
                 
     count = len(result)
 
@@ -248,15 +248,15 @@ def search_for_id(id):
 
 
                 for i in range(20):
-                    datos = [jsn[page]['items'][i]]
-                    wanted.append(datos)
+                    data = [jsn[page]['items'][i]]
+                    wanted.append(data)
                     amount -= 1
                 
 
             else:
                 for i in range(amount):
-                    datos = [jsn[page]['items'][i]]
-                    wanted.append(datos)
+                    data = [jsn[page]['items'][i]]
+                    wanted.append(data)
                     amount -= 1
 
     wanted = (list(reversed(wanted)))
