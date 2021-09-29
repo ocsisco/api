@@ -5,12 +5,14 @@ import markdown
 import markdown.extensions.fenced_code
 from gevent import monkey
 monkey.patch_all()
-from generators import num_of_pages_and_amount,url_generator_list
+from generators import num_of_pages_and_amount,url_generator_list,files_for_page
 
 
 app = Flask(__name__)
 
 url = 'https://api.fbi.gov/wanted/v1/list'
+
+
 
 
 
@@ -48,10 +50,10 @@ def search_by_valid_parameters(search_parameters):
 
         for page in range(pages):
 
-            if amount >= 20:
+            if amount >= files_for_page:
 
 
-                for i in range(20):
+                for i in range(files_for_page):
                     data = [amount]+[jsn[page]['items'][i]['title']] + [jsn[page]['items'][i]['uid']]
                     wanted.append(data)
                     amount -= 1
@@ -96,10 +98,10 @@ def search_by_any_words(any):
 
         for page in range(pages):
 
-            if amount >= 20:
+            if amount >= files_for_page:
 
 
-                for i in range(20):
+                for i in range(files_for_page):
                     data = [jsn[page]['items'][i]]
                     wanted.append(data)
                     amount -= 1
@@ -172,10 +174,10 @@ def search_by_any_words_with_parameters(search_parameters,any):
 
         for page in range(pages):
 
-            if amount >= 20:
+            if amount >= files_for_page:
 
 
-                for i in range(20):
+                for i in range(files_for_page):
                     data = [jsn[page]['items'][i]]
                     wanted.append(data)
                     amount -= 1
@@ -250,10 +252,10 @@ def search_by_id(id):
 
         for page in range(pages):
 
-            if amount >= 20:
+            if amount >= files_for_page:
 
 
-                for i in range(20):
+                for i in range(files_for_page):
                     data = [jsn[page]['items'][i]]
                     wanted.append(data)
                     amount -= 1

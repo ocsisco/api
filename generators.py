@@ -1,6 +1,7 @@
 import requests
 import json
 
+files_for_page = 20
 
 def num_of_pages_and_amount(url,search_parameters):
 
@@ -16,7 +17,7 @@ def num_of_pages_and_amount(url,search_parameters):
     data = json.loads(response.content)
 
     amount = int(data["total"])
-    pages = (amount//20)+1
+    pages = (amount//files_for_page)+1
 
 
     return pages,amount
